@@ -1,222 +1,712 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Expense Tracker - kelola pemasukan, pengeluaran, dan anggaran dengan lebih mudah.">
-  <title>Expense Tracker — Personal Finance</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Expense Tracker - kelola pemasukan, pengeluaran, dan anggaran dengan lebih mudah."
+    />
+    <title>Expense Tracker — Personal Finance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a
+          class="brand"
+          href="#page-dashboard"
+          data-page="dashboard"
+          aria-label="Uangku - kembali ke beranda"
+        >
+          <span class="brand-mark">
+            <svg
+              class="brand-wallet"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48 48"
+              fill="none"
+              aria-hidden="true"
+            >
+              <rect
+                x="5"
+                y="13"
+                width="38"
+                height="30"
+                rx="6"
+                fill="currentColor"
+              />
+              <path
+                d="M10 13V10a4 4 0 0 1 4-4h21a4 4 0 0 1 4 4v3"
+                stroke="currentColor"
+                stroke-width="4"
+              />
+              <path
+                d="M5 20h38"
+                stroke="#FFFFFF"
+                stroke-opacity=".55"
+                stroke-width="2"
+              />
+              <path d="M31 24h12v11H31a5.5 5.5 0 0 1 0-11Z" fill="#FFFFFF" />
+              <circle cx="33" cy="29.5" r="1.8" fill="#16A34A" />
+            </svg>
+          </span>
+          <span>Uangku</span>
+        </a>
 
-<a class="brand" href="#page-dashboard" data-page="dashboard"
-   aria-label="Uangku - kembali ke beranda">
-  <span class="brand-mark">
-    <svg class="brand-wallet"
-         xmlns="http://www.w3.org/2000/svg"
-         viewBox="0 0 48 48"
-         fill="none"
-         aria-hidden="true">
-      <rect x="5" y="13" width="38" height="30" rx="6"
-            fill="currentColor"/>
-      <path d="M10 13V10a4 4 0 0 1 4-4h21a4 4 0 0 1 4 4v3"
-            stroke="currentColor" stroke-width="4"/>
-      <path d="M5 20h38" stroke="#FFFFFF" stroke-opacity=".55"
-            stroke-width="2"/>
-      <path d="M31 24h12v11H31a5.5 5.5 0 0 1 0-11Z"
-            fill="#FFFFFF"/>
-      <circle cx="33" cy="29.5" r="1.8" fill="#16A34A"/>
-    </svg>
-  </span>
-  <span>Uangku</span>
-</a>
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="nav-menu" aria-label="Navigasi utama">
+          <button class="nav-item active" data-page="dashboard">
+            <span class="nav-icon">▦</span> Dashboard
+          </button>
+          <button class="nav-item" data-page="transactions">
+            <span class="nav-icon">⇄</span> Transactions
+          </button>
+          <button class="nav-item" data-page="budgets">
+            <span class="nav-icon">◷</span> Monthly budget
+          </button>
+          <button class="nav-item" data-page="reports">
+            <span class="nav-icon">▥</span> Reports
+          </button>
+        </nav>
 
-
-      <div class="workspace-label">WORKSPACE</div>
-      <nav class="nav-menu" aria-label="Navigasi utama">
-        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">▦</span> Dashboard</button>
-        <button class="nav-item" data-page="transactions"><span class="nav-icon">⇄</span> Transactions</button>
-        <button class="nav-item" data-page="budgets"><span class="nav-icon">◷</span> Monthly budget</button>
-        <button class="nav-item" data-page="reports"><span class="nav-icon">▥</span> Reports</button>
-      </nav>
-
-      <div class="sidebar-bottom">
-        <div class="upgrade-card">
-          <div class="upgrade-orb">✦</div>
-          <strong>Stay on top of your money</strong>
-          <p>Small steps today, better finances tomorrow.</p>
-          <button class="upgrade-link" id="tipsButton">View money tips <span>↗</span></button>
+        <div class="sidebar-bottom">
+          <div class="upgrade-card">
+            <div class="upgrade-orb">✦</div>
+            <strong>Stay on top of your money</strong>
+            <p>Small steps today, better finances tomorrow.</p>
+            <button class="upgrade-link" id="tipsButton">
+              View money tips <span>↗</span>
+            </button>
+          </div>
+          <button class="nav-item" data-page="settings">
+            <span class="nav-icon">⚙</span> Settings
+          </button>
+          <div class="profile-mini">
+            <div class="avatar">AD</div>
+            <div class="profile-copy">
+              <strong>Alexandra Doe</strong><span>Personal account</span>
+            </div>
+            <button class="more-button" aria-label="More profile options">
+              •••
+            </button>
+          </div>
         </div>
-        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span> Settings</button>
-        <div class="profile-mini">
-          <div class="avatar">AD</div>
-          <div class="profile-copy"><strong>Alexandra Doe</strong><span>Personal account</span></div>
-          <button class="more-button" aria-label="More profile options">•••</button>
-        </div>
-      </div>
-    </aside>
+      </aside>
 
-    <main class="main-area">
-      <header class="topbar">
-        <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
-        <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong id="breadcrumbCurrent">Dashboard</strong></div>
-        <div class="topbar-actions">
-          <div class="date-chip"><span>◷</span><span id="todayLabel">Today</span></div>
-          <button class="icon-button notification-button" id="notificationButton" aria-label="Notifications">♧<span class="notification-dot"></span></button>
-          <button class="top-avatar" aria-label="Open profile">AD</button>
-        </div>
-      </header>
+      <main class="main-area">
+        <header class="topbar">
+          <button
+            class="mobile-menu"
+            id="mobileMenu"
+            aria-label="Open navigation"
+          >
+            ☰
+          </button>
+          <div class="breadcrumb">
+            <span>Workspace</span><span class="crumb-slash">/</span
+            ><strong id="breadcrumbCurrent">Dashboard</strong>
+          </div>
+          <div class="topbar-actions">
+            <div class="date-chip">
+              <span>◷</span><span id="todayLabel">Today</span>
+            </div>
+            <button
+              class="icon-button notification-button"
+              id="notificationButton"
+              aria-label="Notifications"
+            >
+              ♧<span class="notification-dot"></span>
+            </button>
+            <button class="top-avatar" aria-label="Open profile">AD</button>
+          </div>
+        </header>
 
-      <section class="page-view active" id="page-dashboard">
-        <div class="welcome-row">
+        <section class="page-view active" id="page-dashboard">
+          <div class="welcome-row">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> YOUR FINANCIAL OVERVIEW
+              </div>
+              <h1>Good to see you, Alex <span class="wave">✦</span></h1>
+              <p class="page-subtitle">
+                Here’s what’s happening with your money today.
+              </p>
+            </div>
+            <button class="button button-primary" id="addTransactionButton">
+              <span class="plus">＋</span> Add transaction
+            </button>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card balance-card">
+              <div class="stat-top">
+                <span class="stat-label">Total balance</span
+                ><span class="stat-icon balance-icon">◈</span>
+              </div>
+              <div class="stat-value" id="totalBalance">Rp 8.450.000</div>
+              <div class="stat-foot">
+                <span class="trend trend-up">↗ 12.8%</span
+                ><span>vs last month</span>
+              </div>
+              <div class="balance-decoration decoration-one"></div>
+              <div class="balance-decoration decoration-two"></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Total income</span
+                ><span class="stat-icon income-icon">↙</span>
+              </div>
+              <div class="stat-value" id="totalIncome">Rp 12.500.000</div>
+              <div class="stat-foot">
+                <span class="trend trend-up">↗ 8.2%</span
+                ><span>vs last month</span>
+              </div>
+              <div class="mini-bars income-bars">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Total expenses</span
+                ><span class="stat-icon expense-icon">↗</span>
+              </div>
+              <div class="stat-value" id="totalExpenses">Rp 4.050.000</div>
+              <div class="stat-foot">
+                <span class="trend trend-down">↘ 3.4%</span
+                ><span>vs last month</span>
+              </div>
+              <div class="mini-bars expense-bars">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+            </article>
+          </div>
+
+          <div class="content-grid">
+            <article class="panel cashflow-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Cash flow</h2>
+                  <p>Track your income and expenses over time.</p>
+                </div>
+                <select
+                  id="chartPeriod"
+                  class="select-control"
+                  aria-label="Cash flow period"
+                >
+                  <option value="6">Last 6 months</option>
+                  <option value="3">Last 3 months</option>
+                  <option value="12">Last 12 months</option>
+                </select>
+              </div>
+              <div class="chart-legend">
+                <span><i class="legend-dot income-dot"></i> Income</span
+                ><span><i class="legend-dot expense-dot"></i> Expenses</span>
+              </div>
+              <div class="chart-wrap">
+                <canvas
+                  id="cashflowChart"
+                  aria-label="Cash flow chart"
+                  role="img"
+                ></canvas>
+              </div>
+            </article>
+
+            <article class="panel budget-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Monthly budget</h2>
+                  <p>Keep your spending in check.</p>
+                </div>
+                <button class="text-button" data-goto="budgets">
+                  See all <span>↗</span>
+                </button>
+              </div>
+              <div class="budget-total-row">
+                <div>
+                  <span class="muted-label">Total spending</span
+                  ><strong id="budgetSpent">Rp 4.050.000</strong>
+                </div>
+                <div class="budget-total-right">
+                  <span class="muted-label">Monthly limit</span
+                  ><strong id="budgetLimit">Rp 6.000.000</strong>
+                </div>
+              </div>
+              <div class="progress-track large-progress">
+                <div
+                  class="progress-fill"
+                  id="budgetProgress"
+                  style="width: 67%"
+                ></div>
+              </div>
+              <div class="budget-caption">
+                <span id="budgetPercent">67.5% used</span
+                ><span id="budgetRemaining">Rp 1.950.000 left</span>
+              </div>
+              <div class="budget-divider"></div>
+              <div class="budget-category-list" id="budgetCategoryList"></div>
+              <button
+                class="button button-secondary button-full"
+                data-goto="budgets"
+              >
+                Manage budget <span>→</span>
+              </button>
+            </article>
+          </div>
+
+          <article class="panel transactions-panel">
+            <div class="panel-heading transactions-heading">
+              <div>
+                <h2>Recent transactions</h2>
+                <p>Your latest financial activity.</p>
+              </div>
+              <button class="text-button" data-goto="transactions">
+                View all transactions <span>↗</span>
+              </button>
+            </div>
+            <div class="table-wrap">
+              <table class="transaction-table">
+                <thead>
+                  <tr>
+                    <th>TRANSACTION</th>
+                    <th>CATEGORY</th>
+                    <th>DATE</th>
+                    <th>AMOUNT</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="recentTransactions"></tbody>
+              </table>
+            </div>
+            <div class="empty-state hidden" id="recentEmpty">
+              No transactions yet. Add your first transaction to get started.
+            </div>
+          </article>
+        </section>
+
+        <section class="page-view" id="page-transactions">
+          <div class="welcome-row">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> MONEY IN, MONEY OUT
+              </div>
+              <h1>Transactions</h1>
+              <p class="page-subtitle">A clear view of every financial move.</p>
+            </div>
+            <button class="button button-primary" id="addTransactionButton2">
+              <span class="plus">＋</span> Add transaction
+            </button>
+          </div>
+          <article class="panel full-panel">
+            <div class="filter-toolbar">
+              <label class="search-box"
+                ><span>⌕</span
+                ><input
+                  type="search"
+                  id="transactionSearch"
+                  placeholder="Search transactions..."
+                  aria-label="Search transactions"
+              /></label>
+              <select
+                id="typeFilter"
+                class="select-control"
+                aria-label="Filter by type"
+              >
+                <option value="all">All types</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+              </select>
+              <select
+                id="categoryFilter"
+                class="select-control"
+                aria-label="Filter by category"
+              >
+                <option value="all">All categories</option>
+              </select>
+            </div>
+            <div class="table-wrap">
+              <table class="transaction-table">
+                <thead>
+                  <tr>
+                    <th>TRANSACTION</th>
+                    <th>CATEGORY</th>
+                    <th>DATE</th>
+                    <th>TYPE</th>
+                    <th>AMOUNT</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody id="allTransactions"></tbody>
+              </table>
+            </div>
+            <div class="empty-state hidden" id="allEmpty">
+              No transactions match your search.
+            </div>
+          </article>
+        </section>
+
+        <section class="page-view" id="page-budgets">
+          <div class="welcome-row">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> PLAN WITH PURPOSE
+              </div>
+              <h1>Monthly budget</h1>
+              <p class="page-subtitle">
+                Give every rupiah a purpose this month.
+              </p>
+            </div>
+            <button class="button button-primary" id="editBudgetButton">
+              ✎ Edit budget
+            </button>
+          </div>
+          <div class="budget-overview-grid">
+            <article class="panel budget-overview-main">
+              <div class="panel-heading">
+                <div>
+                  <h2>Budget overview</h2>
+                  <p id="budgetMonthLabel">Your monthly spending plan</p>
+                </div>
+                <span class="status-pill" id="budgetStatus">On track</span>
+              </div>
+              <div class="budget-big-number" id="budgetOverviewSpent">
+                Rp 4.050.000
+              </div>
+              <div class="muted-label">
+                spent out of
+                <strong id="budgetOverviewLimit">Rp 6.000.000</strong>
+              </div>
+              <div class="progress-track budget-overview-track">
+                <div
+                  class="progress-fill"
+                  id="budgetOverviewProgress"
+                  style="width: 67%"
+                ></div>
+              </div>
+              <div class="budget-overview-footer">
+                <span id="budgetOverviewPercent">67.5% of budget used</span
+                ><strong id="budgetOverviewRemaining"
+                  >Rp 1.950.000 remaining</strong
+                >
+              </div>
+            </article>
+            <article class="panel budget-tip-card">
+              <span class="tip-icon">✦</span>
+              <h2>Little reminder</h2>
+              <p>
+                A budget is not about restricting yourself. It’s about making
+                room for the things that matter most.
+              </p>
+              <span class="tip-signature">YOUR FINANCIAL WELLNESS NOTE</span>
+            </article>
+          </div>
+          <article class="panel category-budget-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Spending by category</h2>
+                <p>See how each category compares to its budget.</p>
+              </div>
+            </div>
+            <div class="category-budget-list" id="categoryBudgetList"></div>
+          </article>
+        </section>
+
+        <section class="page-view" id="page-reports">
+          <div class="welcome-row">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> YOUR MONEY, IN PERSPECTIVE
+              </div>
+              <h1>Reports</h1>
+              <p class="page-subtitle">
+                Understand your financial habits at a glance.
+              </p>
+            </div>
+          </div>
+          <div class="stats-grid report-stats">
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Savings this month</span
+                ><span class="stat-icon income-icon">✧</span>
+              </div>
+              <div class="stat-value" id="reportSavings">Rp 8.450.000</div>
+              <div class="stat-foot"><span>Income minus expenses</span></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Transactions</span
+                ><span class="stat-icon balance-icon">⇄</span>
+              </div>
+              <div class="stat-value" id="reportCount">8</div>
+              <div class="stat-foot"><span>Recorded this month</span></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Average expense</span
+                ><span class="stat-icon expense-icon">⌁</span>
+              </div>
+              <div class="stat-value" id="reportAverage">Rp 506.250</div>
+              <div class="stat-foot"><span>Per expense transaction</span></div>
+            </article>
+          </div>
+          <article class="panel report-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Spending breakdown</h2>
+                <p>Where your money is going.</p>
+              </div>
+            </div>
+            <div class="report-breakdown" id="reportBreakdown"></div>
+          </article>
+        </section>
+
+        <section class="page-view" id="page-settings">
+          <div class="welcome-row">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span> MAKE IT YOURS
+              </div>
+              <h1>Settings</h1>
+              <p class="page-subtitle">
+                A few preferences to make Expense Tracker feel like home.
+              </p>
+            </div>
+          </div>
+          <article class="panel settings-panel">
+            <div class="settings-row">
+              <div>
+                <h3>Appearance</h3>
+                <p>Switch between light and dark mode.</p>
+              </div>
+              <label class="switch"
+                ><input type="checkbox" id="themeToggle" /><span
+                  class="switch-slider"
+                ></span
+              ></label>
+            </div>
+            <div class="settings-row">
+              <div>
+                <h3>Budget alerts</h3>
+                <p>
+                  Show a notification when spending reaches 80% of your limit.
+                </p>
+              </div>
+              <label class="switch"
+                ><input type="checkbox" id="alertsToggle" checked /><span
+                  class="switch-slider"
+                ></span
+              ></label>
+            </div>
+            
+<div class="settings-row">
+  <div>
+    <h3>Bahasa / Language</h3>
+    <p>Pilih bahasa yang digunakan pada aplikasi.</p>
+  </div>
+  <select id="uangkuLanguage" aria-label="Choose language">
+    <option value="id">Bahasa Indonesia</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
+            <div class="settings-row">
+              <div>
+                <h3>Currency</h3>
+                <p>Currency used throughout the app.</p>
+              </div>
+              <span class="settings-value"
+                >🇮🇩 &nbsp; Indonesian Rupiah (IDR)</span
+              >
+            </div>
+            <div class="settings-row">
+              <div>
+                <h3>Data storage</h3>
+                <p>This demo saves data in this browser only.</p>
+              </div>
+              <span class="settings-value"
+                ><span class="online-dot"></span> Local storage</span
+              >
+            </div>
+            <button class="button button-secondary" id="resetDemoButton">
+              Reset all data
+            </button>
+          </article>
+        </section>
+
+        <footer class="app-footer">
+          <span>© UangKu</span
+          ><span
+            >Made for a clearer financial future
+            <span class="footer-heart">♥</span></span
+          >
+        </footer>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="transactionModal" aria-hidden="true">
+      <section
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <div class="modal-header">
           <div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR FINANCIAL OVERVIEW</div>
-            <h1>Good to see you, Alex <span class="wave">✦</span></h1>
-            <p class="page-subtitle">Here’s what’s happening with your money today.</p>
-          </div>
-          <button class="button button-primary" id="addTransactionButton"><span class="plus">＋</span> Add transaction</button>
-        </div>
-
-        <div class="stats-grid">
-          <article class="stat-card balance-card">
-            <div class="stat-top"><span class="stat-label">Total balance</span><span class="stat-icon balance-icon">◈</span></div>
-            <div class="stat-value" id="totalBalance">Rp 8.450.000</div>
-            <div class="stat-foot"><span class="trend trend-up">↗ 12.8%</span><span>vs last month</span></div>
-            <div class="balance-decoration decoration-one"></div><div class="balance-decoration decoration-two"></div>
-          </article>
-          <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Total income</span><span class="stat-icon income-icon">↙</span></div>
-            <div class="stat-value" id="totalIncome">Rp 12.500.000</div>
-            <div class="stat-foot"><span class="trend trend-up">↗ 8.2%</span><span>vs last month</span></div>
-            <div class="mini-bars income-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          </article>
-          <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Total expenses</span><span class="stat-icon expense-icon">↗</span></div>
-            <div class="stat-value" id="totalExpenses">Rp 4.050.000</div>
-            <div class="stat-foot"><span class="trend trend-down">↘ 3.4%</span><span>vs last month</span></div>
-            <div class="mini-bars expense-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          </article>
-        </div>
-
-        <div class="content-grid">
-          <article class="panel cashflow-panel">
-            <div class="panel-heading">
-              <div><h2>Cash flow</h2><p>Track your income and expenses over time.</p></div>
-              <select id="chartPeriod" class="select-control" aria-label="Cash flow period"><option value="6">Last 6 months</option><option value="3">Last 3 months</option><option value="12">Last 12 months</option></select>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span> YOUR MONEY JOURNAL
             </div>
-            <div class="chart-legend"><span><i class="legend-dot income-dot"></i> Income</span><span><i class="legend-dot expense-dot"></i> Expenses</span></div>
-            <div class="chart-wrap"><canvas id="cashflowChart" aria-label="Cash flow chart" role="img"></canvas></div>
-          </article>
-
-          <article class="panel budget-panel">
-            <div class="panel-heading">
-              <div><h2>Monthly budget</h2><p>Keep your spending in check.</p></div>
-              <button class="text-button" data-goto="budgets">See all <span>↗</span></button>
+            <h2 id="modalTitle">Add transaction</h2>
+            <p>Record a money move in just a moment.</p>
+          </div>
+          <button class="modal-close" id="closeModal" aria-label="Close dialog">
+            ×
+          </button>
+        </div>
+        <form id="transactionForm">
+          <input type="hidden" id="transactionId" />
+          <div class="type-toggle">
+            <button
+              type="button"
+              class="type-choice active"
+              data-type="expense"
+            >
+              ↗ &nbsp; Expense</button
+            ><button type="button" class="type-choice" data-type="income">
+              ↙ &nbsp; Income
+            </button>
+          </div>
+          <div class="form-group">
+            <label for="transactionTitle">Transaction name</label
+            ><input
+              id="transactionTitle"
+              name="title"
+              type="text"
+              placeholder="Lunch"
+              maxlength="60"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="transactionAmount">Amount (Rp)</label
+              ><input
+                id="transactionAmount"
+                name="amount"
+                type="number"
+                min="1"
+                step="1"
+                placeholder="50000"
+                required
+              />
             </div>
-            <div class="budget-total-row"><div><span class="muted-label">Total spending</span><strong id="budgetSpent">Rp 4.050.000</strong></div><div class="budget-total-right"><span class="muted-label">Monthly limit</span><strong id="budgetLimit">Rp 6.000.000</strong></div></div>
-            <div class="progress-track large-progress"><div class="progress-fill" id="budgetProgress" style="width:67%"></div></div>
-            <div class="budget-caption"><span id="budgetPercent">67.5% used</span><span id="budgetRemaining">Rp 1.950.000 left</span></div>
-            <div class="budget-divider"></div>
-            <div class="budget-category-list" id="budgetCategoryList"></div>
-            <button class="button button-secondary button-full" data-goto="budgets">Manage budget <span>→</span></button>
-          </article>
-        </div>
-
-        <article class="panel transactions-panel">
-          <div class="panel-heading transactions-heading">
-            <div><h2>Recent transactions</h2><p>Your latest financial activity.</p></div>
-            <button class="text-button" data-goto="transactions">View all transactions <span>↗</span></button>
+            <div class="form-group">
+              <label for="transactionDate">Date</label
+              ><input id="transactionDate" name="date" type="date" required />
+            </div>
           </div>
-          <div class="table-wrap">
-            <table class="transaction-table">
-              <thead><tr><th>TRANSACTION</th><th>CATEGORY</th><th>DATE</th><th>AMOUNT</th><th></th></tr></thead>
-              <tbody id="recentTransactions"></tbody>
-            </table>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="transactionCategory">Category</label
+              ><select
+                id="transactionCategory"
+                name="category"
+                required
+              ></select>
+            </div>
+            <div class="form-group">
+              <label for="transactionNote">Note (optional)</label
+              ><input
+                id="transactionNote"
+                name="note"
+                type="text"
+                maxlength="100"
+                placeholder="Add a note"
+              />
+            </div>
           </div>
-          <div class="empty-state hidden" id="recentEmpty">No transactions yet. Add your first transaction to get started.</div>
-        </article>
-      </section>
-
-      <section class="page-view" id="page-transactions">
-        <div class="welcome-row">
-          <div><div class="eyebrow"><span class="eyebrow-dot"></span> MONEY IN, MONEY OUT</div><h1>Transactions</h1><p class="page-subtitle">A clear view of every financial move.</p></div>
-          <button class="button button-primary" id="addTransactionButton2"><span class="plus">＋</span> Add transaction</button>
-        </div>
-        <article class="panel full-panel">
-          <div class="filter-toolbar">
-            <label class="search-box"><span>⌕</span><input type="search" id="transactionSearch" placeholder="Search transactions..." aria-label="Search transactions"></label>
-            <select id="typeFilter" class="select-control" aria-label="Filter by type"><option value="all">All types</option><option value="income">Income</option><option value="expense">Expense</option></select>
-            <select id="categoryFilter" class="select-control" aria-label="Filter by category"><option value="all">All categories</option></select>
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="button button-secondary"
+              id="cancelModal"
+            >
+              Cancel</button
+            ><button
+              type="submit"
+              class="button button-primary"
+              id="saveTransactionButton"
+            >
+              Save transaction <span>→</span>
+            </button>
           </div>
-          <div class="table-wrap">
-            <table class="transaction-table">
-              <thead><tr><th>TRANSACTION</th><th>CATEGORY</th><th>DATE</th><th>TYPE</th><th>AMOUNT</th><th>ACTIONS</th></tr></thead>
-              <tbody id="allTransactions"></tbody>
-            </table>
+        </form>
+      </section>
+    </div>
+
+    <div class="modal-backdrop" id="budgetModal" aria-hidden="true">
+      <section
+        class="modal-card small-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="budgetModalTitle"
+      >
+        <div class="modal-header">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span> PLAN AHEAD
+            </div>
+            <h2 id="budgetModalTitle">Set monthly budget</h2>
+            <p>Choose a limit that works for you.</p>
           </div>
-          <div class="empty-state hidden" id="allEmpty">No transactions match your search.</div>
-        </article>
-      </section>
-
-      <section class="page-view" id="page-budgets">
-        <div class="welcome-row">
-          <div><div class="eyebrow"><span class="eyebrow-dot"></span> PLAN WITH PURPOSE</div><h1>Monthly budget</h1><p class="page-subtitle">Give every rupiah a purpose this month.</p></div>
-          <button class="button button-primary" id="editBudgetButton">✎ Edit budget</button>
+          <button
+            class="modal-close"
+            id="closeBudgetModal"
+            aria-label="Close dialog"
+          >
+            ×
+          </button>
         </div>
-        <div class="budget-overview-grid">
-          <article class="panel budget-overview-main"><div class="panel-heading"><div><h2>Budget overview</h2><p id="budgetMonthLabel">Your monthly spending plan</p></div><span class="status-pill" id="budgetStatus">On track</span></div><div class="budget-big-number" id="budgetOverviewSpent">Rp 4.050.000</div><div class="muted-label">spent out of <strong id="budgetOverviewLimit">Rp 6.000.000</strong></div><div class="progress-track budget-overview-track"><div class="progress-fill" id="budgetOverviewProgress" style="width:67%"></div></div><div class="budget-overview-footer"><span id="budgetOverviewPercent">67.5% of budget used</span><strong id="budgetOverviewRemaining">Rp 1.950.000 remaining</strong></div></article>
-          <article class="panel budget-tip-card"><span class="tip-icon">✦</span><h2>Little reminder</h2><p>A budget is not about restricting yourself. It’s about making room for the things that matter most.</p><span class="tip-signature">YOUR FINANCIAL WELLNESS NOTE</span></article>
-        </div>
-        <article class="panel category-budget-panel"><div class="panel-heading"><div><h2>Spending by category</h2><p>See how each category compares to its budget.</p></div></div><div class="category-budget-list" id="categoryBudgetList"></div></article>
+        <form id="budgetForm">
+          <div class="form-group">
+            <label for="monthlyLimitInput">Monthly spending limit (Rp)</label
+            ><input
+              id="monthlyLimitInput"
+              type="number"
+              min="1"
+              step="1000"
+              required
+            />
+          </div>
+          <div class="modal-actions">
+            <button
+              type="button"
+              class="button button-secondary"
+              id="cancelBudgetModal"
+            >
+              Cancel</button
+            ><button type="submit" class="button button-primary">
+              Save budget <span>→</span>
+            </button>
+          </div>
+        </form>
       </section>
+    </div>
 
-      <section class="page-view" id="page-reports">
-        <div class="welcome-row"><div><div class="eyebrow"><span class="eyebrow-dot"></span> YOUR MONEY, IN PERSPECTIVE</div><h1>Reports</h1><p class="page-subtitle">Understand your financial habits at a glance.</p></div></div>
-        <div class="stats-grid report-stats">
-          <article class="stat-card"><div class="stat-top"><span class="stat-label">Savings this month</span><span class="stat-icon income-icon">✧</span></div><div class="stat-value" id="reportSavings">Rp 8.450.000</div><div class="stat-foot"><span>Income minus expenses</span></div></article>
-          <article class="stat-card"><div class="stat-top"><span class="stat-label">Transactions</span><span class="stat-icon balance-icon">⇄</span></div><div class="stat-value" id="reportCount">8</div><div class="stat-foot"><span>Recorded this month</span></div></article>
-          <article class="stat-card"><div class="stat-top"><span class="stat-label">Average expense</span><span class="stat-icon expense-icon">⌁</span></div><div class="stat-value" id="reportAverage">Rp 506.250</div><div class="stat-foot"><span>Per expense transaction</span></div></article>
-        </div>
-        <article class="panel report-panel"><div class="panel-heading"><div><h2>Spending breakdown</h2><p>Where your money is going.</p></div></div><div class="report-breakdown" id="reportBreakdown"></div></article>
-      </section>
-
-      <section class="page-view" id="page-settings">
-        <div class="welcome-row"><div><div class="eyebrow"><span class="eyebrow-dot"></span> MAKE IT YOURS</div><h1>Settings</h1><p class="page-subtitle">A few preferences to make Expense Tracker feel like home.</p></div></div>
-        <article class="panel settings-panel"><div class="settings-row"><div><h3>Appearance</h3><p>Switch between light and dark mode.</p></div><label class="switch"><input type="checkbox" id="themeToggle"><span class="switch-slider"></span></label></div><div class="settings-row"><div><h3>Budget alerts</h3><p>Show a notification when spending reaches 80% of your limit.</p></div><label class="switch"><input type="checkbox" id="alertsToggle" checked><span class="switch-slider"></span></label></div><div class="settings-row"><div><h3>Currency</h3><p>Currency used throughout the app.</p></div><span class="settings-value">🇮🇩 &nbsp; Indonesian Rupiah (IDR)</span></div><div class="settings-row"><div><h3>Data storage</h3><p>This demo saves data in this browser only.</p></div><span class="settings-value"><span class="online-dot"></span> Local storage</span></div><button class="button button-secondary" id="resetDemoButton">Reset all data</button></article>
-      </section>
-
-      <footer class="app-footer"><span>© UangKu</span><span>Made for a clearer financial future <span class="footer-heart">♥</span></span></footer>
-    </main>
-  </div>
-
-  <div class="modal-backdrop" id="transactionModal" aria-hidden="true">
-    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-header"><div><div class="eyebrow"><span class="eyebrow-dot"></span> YOUR MONEY JOURNAL</div><h2 id="modalTitle">Add transaction</h2><p>Record a money move in just a moment.</p></div><button class="modal-close" id="closeModal" aria-label="Close dialog">×</button></div>
-      <form id="transactionForm">
-        <input type="hidden" id="transactionId">
-        <div class="type-toggle"><button type="button" class="type-choice active" data-type="expense">↗ &nbsp; Expense</button><button type="button" class="type-choice" data-type="income">↙ &nbsp; Income</button></div>
-        <div class="form-group"><label for="transactionTitle">Transaction name</label><input id="transactionTitle" name="title" type="text" placeholder="e.g. Lunch with friends" maxlength="60" required></div>
-        <div class="form-row"><div class="form-group"><label for="transactionAmount">Amount (Rp)</label><input id="transactionAmount" name="amount" type="number" min="1" step="1" placeholder="50000" required></div><div class="form-group"><label for="transactionDate">Date</label><input id="transactionDate" name="date" type="date" required></div></div>
-        <div class="form-row"><div class="form-group"><label for="transactionCategory">Category</label><select id="transactionCategory" name="category" required></select></div><div class="form-group"><label for="transactionNote">Note (optional)</label><input id="transactionNote" name="note" type="text" maxlength="100" placeholder="Add a note"></div></div>
-        <div class="modal-actions"><button type="button" class="button button-secondary" id="cancelModal">Cancel</button><button type="submit" class="button button-primary" id="saveTransactionButton">Save transaction <span>→</span></button></div>
-      </form>
-    </section>
-  </div>
-
-  <div class="modal-backdrop" id="budgetModal" aria-hidden="true">
-    <section class="modal-card small-modal" role="dialog" aria-modal="true" aria-labelledby="budgetModalTitle">
-      <div class="modal-header"><div><div class="eyebrow"><span class="eyebrow-dot"></span> PLAN AHEAD</div><h2 id="budgetModalTitle">Set monthly budget</h2><p>Choose a limit that works for you.</p></div><button class="modal-close" id="closeBudgetModal" aria-label="Close dialog">×</button></div>
-      <form id="budgetForm"><div class="form-group"><label for="monthlyLimitInput">Monthly spending limit (Rp)</label><input id="monthlyLimitInput" type="number" min="1" step="1000" required></div><div class="modal-actions"><button type="button" class="button button-secondary" id="cancelBudgetModal">Cancel</button><button type="submit" class="button button-primary">Save budget <span>→</span></button></div></form>
-    </section>
-  </div>
-
-  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
-  <div class="notification-popover hidden" id="notificationPopover"><div class="notification-popover-head"><strong>Notifications</strong><button id="closeNotifications" aria-label="Close notifications">×</button></div><div id="notificationContent"></div></div>
-  <script src="assets/js/script.js"></script>
-</body>
+    <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+    <div class="notification-popover hidden" id="notificationPopover">
+      <div class="notification-popover-head">
+        <strong>Notifications</strong
+        ><button id="closeNotifications" aria-label="Close notifications">
+          ×
+        </button>
+      </div>
+      <div id="notificationContent"></div>
+    </div>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
